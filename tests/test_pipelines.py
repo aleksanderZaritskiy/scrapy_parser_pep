@@ -14,16 +14,16 @@ except ImportError as exc:
 
 
 def test_pep_parse_pipeline():
-    assert inspect.isclass(PepParsePipeline), (
-        '`PepParsePipeline` должен быть классом.'
-    )
+    assert inspect.isclass(
+        PepParsePipeline
+    ), '`PepParsePipeline` должен быть классом.'
 
 
 def test_pipeline_open_spider():
     got = PepParsePipeline()
-    assert hasattr(got, 'open_spider'), (
-        f'В классе `{got.__class__.__name__}` должен быть метод `open_spider`.'
-    )
+    assert hasattr(
+        got, 'open_spider'
+    ), f'В классе `{got.__class__.__name__}` должен быть метод `open_spider`.'
     assert callable(got.open_spider), (
         f'`open_spider` класса {got.__class__.__name__} должен '
         'быть вызываемым методом.'

@@ -18,9 +18,7 @@ def results_dir():
 
 
 def test_results_dir_exists(results_dir):
-    assert len(results_dir), (
-        'Не обнаружена папка /results'
-    )
+    assert len(results_dir), 'Не обнаружена папка /results'
 
 
 def test_csv_files(results_dir):

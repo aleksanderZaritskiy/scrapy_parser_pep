@@ -21,9 +21,9 @@ def test_settings_feeds():
         'https://docs.scrapy.org/en/latest/topics/feed-exports.html?highlight=feeds#feeds'
     )
     feeds_path = list(FEEDS.keys())
-    assert len(feeds_path) == 1, (
-        'В `FEEDS` необходимо объявить только 1 ключ с путём сохранения файла.'
-    )
+    assert (
+        len(feeds_path) == 1
+    ), 'В `FEEDS` необходимо объявить только 1 ключ с путём сохранения файла.'
     if isinstance(feeds_path[0], Path):
         feeds_path[0] = str(feeds_path[0])
     splited_path = feeds_path[0].split('/')
@@ -41,9 +41,9 @@ def test_settings_feeds():
         'Убедитесь, что в FEEDS есть все необходимые поля: '
         '`number, name, status`'
     )
-    assert fields_format_keys.get('format') == 'csv', (
-        'Проверьте формат вывода файла в FEEDS'
-    )
+    assert (
+        fields_format_keys.get('format') == 'csv'
+    ), 'Проверьте формат вывода файла в FEEDS'
 
 
 def test_item_pipelines():
@@ -54,13 +54,15 @@ def test_item_pipelines():
         'https://docs.scrapy.org/en/latest/topics/settings.html?highlight=ITEM_PIPELINES#item-pipelines'
     )
     item_pipelines = list(ITEM_PIPELINES.keys())
-    assert len(item_pipelines) == 1, (
-        'В `ITEM_PIPELINES` необходимо объявить 1 ключ с именем пайплайна.'
-    )
-    assert item_pipelines[0] == 'pep_parse.pipelines.PepParsePipeline', (
-        'Ключом пайплайна в настройках `ITEM_PIPELINES` должен быть класс.'
-    )
-    assert ITEM_PIPELINES['pep_parse.pipelines.PepParsePipeline'] in range(1000), (
+    assert (
+        len(item_pipelines) == 1
+    ), 'В `ITEM_PIPELINES` необходимо объявить 1 ключ с именем пайплайна.'
+    assert (
+        item_pipelines[0] == 'pep_parse.pipelines.PepParsePipeline'
+    ), 'Ключом пайплайна в настройках `ITEM_PIPELINES` должен быть класс.'
+    assert ITEM_PIPELINES['pep_parse.pipelines.PepParsePipeline'] in range(
+        1000
+    ), (
         'В качестве значения для ключа `pep_parse.pipelines.PepParsePipeline` '
         'в настройках укажите значение из диапазона от `0` и до `1000`'
     )

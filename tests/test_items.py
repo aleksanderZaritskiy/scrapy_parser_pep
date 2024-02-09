@@ -11,14 +11,12 @@ except ImportError as exc:
 
 
 def test_items_fields():
-    assert inspect.isclass(PepParseItem), (
-        '`PepParseItem` должен быть классом.'
-    )
-    assert issubclass(PepParseItem, scrapy.Item), (
-        '`PepParseItem` должен наследоваться от `scrapy.Item`'
-    )
+    assert inspect.isclass(PepParseItem), '`PepParseItem` должен быть классом.'
+    assert issubclass(
+        PepParseItem, scrapy.Item
+    ), '`PepParseItem` должен наследоваться от `scrapy.Item`'
     fields = ['number', 'name', 'status']
     for field in fields:
-        assert field in list(PepParseItem.fields.keys()), (
-            f'В `PepParseItem` не хватает атрибута `{field}`'
-        )
+        assert field in list(
+            PepParseItem.fields.keys()
+        ), f'В `PepParseItem` не хватает атрибута `{field}`'
